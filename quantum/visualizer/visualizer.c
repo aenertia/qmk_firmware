@@ -267,9 +267,11 @@ static DECLARE_THREAD_FUNCTION(visualizerThread, arg) {
     visualizer_state_t state = {
         .status = initial_status,
         .current_lcd_color = 0,
+
+ 
 #ifdef LCD_ENABLE
         .font_fixed5x8 = gdispOpenFont("fixed_5x8"),
-        .font_dejavusansbold12 = gdispOpenFont("DejaVuSansBold12")
+/*        .font_dejavusansbold12 = gdispOpenFont("DejaVuSansBold12") */
 #endif
     };
     initialize_user_visualizer(&state);
@@ -379,7 +381,7 @@ static DECLARE_THREAD_FUNCTION(visualizerThread, arg) {
     }
 #ifdef LCD_ENABLE
     gdispCloseFont(state.font_fixed5x8);
-    gdispCloseFont(state.font_dejavusansbold12);
+//    gdispCloseFont(state.font_dejavusansbold12);
 #endif
 
     return 0;

@@ -23,7 +23,8 @@
 bool lcd_keyframe_display_layer_text(keyframe_animation_t* animation, visualizer_state_t* state) {
     (void)animation;
     gdispClear(White);
-    gdispDrawString(0, 10, state->layer_text, state->font_dejavusansbold12, Black);
+//    gdispDrawString(0, 10, state->layer_text, state->font_fixed5x8, Black);
+    gdispGDrawStringBox(GDISP, 0, 0, LCD_WIDTH, LCD_HEIGHT, state->layer_text, state->font_fixed5x8, Black, justifyLeft);
     return false;
 }
 
@@ -57,11 +58,14 @@ bool lcd_keyframe_display_layer_bitmap(keyframe_animation_t* animation, visualiz
     const char* layer_help = "1=On D=Default B=Both";
     char layer_buffer[16 + 4]; // 3 spaces and one null terminator
     gdispClear(White);
-    gdispDrawString(0, 0, layer_help, state->font_fixed5x8, Black);
+//    gdispDrawString(0, 0, layer_help, state->font_fixed5x8, Black);
+    gdispGDrawStringBox(GDISP, 0, 0, LCD_WIDTH, LCD_HEIGHT, layer_help, state->font_fixed5x8, Black, justifyLeft);
     format_layer_bitmap_string(state->status.default_layer, state->status.layer, layer_buffer);
-    gdispDrawString(0, 10, layer_buffer, state->font_fixed5x8, Black);
+//    gdispDrawString(0, 10, layer_buffer, state->font_fixed5x8, Black);
+    gdispGDrawStringBox(GDISP, 0, 0, LCD_WIDTH, LCD_HEIGHT, layer_buffer, state->font_fixed5x8, Black, justifyLeft);
     format_layer_bitmap_string(state->status.default_layer >> 16, state->status.layer >> 16, layer_buffer);
-    gdispDrawString(0, 20, layer_buffer, state->font_fixed5x8, Black);
+//    gdispDrawString(0, 20, layer_buffer, state->font_fixed5x8, Black);
+    gdispGDrawStringBox(GDISP, 0, 0, LCD_WIDTH, LCD_HEIGHT, layer_buffer, state->font_fixed5x8, Black, justifyLeft);
     return false;
 }
 
@@ -95,10 +99,13 @@ bool lcd_keyframe_display_mods_bitmap(keyframe_animation_t* animation, visualize
     char status_buffer[12];
 
     gdispClear(White);
-    gdispDrawString(0, 0, title, state->font_fixed5x8, Black);
-    gdispDrawString(0, 10, mods_header, state->font_fixed5x8, Black);
+//    gdispDrawString(0, 0, title, state->font_fixed5x8, Black);
+    gdispGDrawStringBox(GDISP, 0, 0, LCD_WIDTH, LCD_HEIGHT, title, state->font_fixed5x8, Black, justifyLeft);
+//    gdispDrawString(0, 10, mods_header, state->font_fixed5x8, Black);
+    gdispGDrawStringBox(GDISP, 0, 0, LCD_WIDTH, LCD_HEIGHT, mods_header, state->font_fixed5x8, Black, justifyLeft);
     format_mods_bitmap_string(state->status.mods, status_buffer);
-    gdispDrawString(0, 20, status_buffer, state->font_fixed5x8, Black);
+//    gdispDrawString(0, 20, status_buffer, state->font_fixed5x8, Black);
+    gdispGDrawStringBox(GDISP, 0, 0, LCD_WIDTH, LCD_HEIGHT, status_buffer, state->font_fixed5x8, Black, justifyLeft);
 
     return false;
 }
@@ -137,21 +144,25 @@ bool lcd_keyframe_display_led_states(keyframe_animation_t* animation, visualizer
     char output[LED_STATE_STRING_SIZE];
     get_led_state_string(output, state);
     gdispClear(White);
-    gdispDrawString(0, 10, output, state->font_dejavusansbold12, Black);
+    gdispGDrawStringBox(GDISP, 0, 0, LCD_WIDTH, LCD_HEIGHT, state->layer_text, state->font_fixed5x8, Black, justifyLeft);
     return false;
 }
 
 bool lcd_keyframe_display_layer_and_led_states(keyframe_animation_t* animation, visualizer_state_t* state) {
     (void)animation;
     gdispClear(White);
-    uint8_t y = 10;
+//    uint8_t y = 10;
     if (state->status.leds) {
         char output[LED_STATE_STRING_SIZE];
         get_led_state_string(output, state);
-        gdispDrawString(0, 1, output, state->font_dejavusansbold12, Black);
-        y = 17;
+//        gdispDrawString(0, 1, output, state->font_fixed5x8, Black);
+        gdispGDrawStringBox(GDISP, 0, 0, LCD_WIDTH, LCD_HEIGHT, output, state->font_fixed5x8, Black, justifyLeft);
+      
+//        y = 17;
     }
-    gdispDrawString(0, y, state->layer_text, state->font_dejavusansbold12, Black);
+//    gdispDrawString(0, y, state->layer_text, state->font_fixed5x8, Black);
+    gdispGDrawStringBox(GDISP, 0, 0, LCD_WIDTH, LCD_HEIGHT, state->layer_text, state->font_fixed5x8, Black, justifyLeft);
+
     return false;
 }
 

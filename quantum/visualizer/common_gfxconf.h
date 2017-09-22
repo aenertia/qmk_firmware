@@ -77,9 +77,9 @@
 //#define GDISP_NEED_MULTITHREAD                       FALSE
 //#define GDISP_NEED_STREAMING                         FALSE
 #define GDISP_NEED_TEXT                              TRUE
-//    #define GDISP_NEED_TEXT_WORDWRAP                 FALSE
+#define GDISP_NEED_TEXT_WORDWRAP                 TRUE
 //    #define GDISP_NEED_ANTIALIAS                     FALSE
-//    #define GDISP_NEED_UTF8                          FALSE
+//    #define GDISP_NEED_UTF8                          TRUE
     #define GDISP_NEED_TEXT_KERNING                  TRUE
 //    #define GDISP_INCLUDE_FONT_UI1                   FALSE
 //    #define GDISP_INCLUDE_FONT_UI2                   FALSE		// The smallest preferred font.
@@ -90,7 +90,7 @@
 //    #define GDISP_INCLUDE_FONT_DEJAVUSANS20          FALSE
 //    #define GDISP_INCLUDE_FONT_DEJAVUSANS24          FALSE
 //    #define GDISP_INCLUDE_FONT_DEJAVUSANS32          FALSE
-    #define GDISP_INCLUDE_FONT_DEJAVUSANSBOLD12      TRUE
+//    #define GDISP_INCLUDE_FONT_DEJAVUSANSBOLD12      TRUE
 //    #define GDISP_INCLUDE_FONT_FIXED_10X20           FALSE
 //    #define GDISP_INCLUDE_FONT_FIXED_7X14            FALSE
     #define GDISP_INCLUDE_FONT_FIXED_5X8             TRUE
